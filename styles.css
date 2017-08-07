@@ -27,3 +27,7 @@ h1 {
 #message{
     color: black;
 }
+
+.selected {
+    background-color: blue;
+}
