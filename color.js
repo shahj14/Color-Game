@@ -21,6 +21,7 @@ newColors.addEventListener("click", function(){
     }
     h1.style.backgroundColor = "steelblue";
     this.textContent = "New Colors";
+    messageDisplay.textContent = "";
 });
 
 easyButton.addEventListener("click", function(){
