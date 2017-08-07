@@ -5,8 +5,19 @@ var correctColor = pickColor();
 var colorDisplay = document.querySelector("#colorString");
 var messageDisplay = document.querySelector("#message");
 var h1 = document.querySelector("h1");
+var newColors = document.querySelector("#newColors");
 
 colorDisplay.textContent = correctColor;
+
+newColors.addEventListener("click", function(){
+    colors = generateRandomColors(6);
+    correctColor = pickColor();
+    colorDisplay.textContent = correctColor;
+    for(var i = 0; i < squares.length; i++){
+        squares[i].style.backgroundColor = colors[i];
+    }
+    h1.style.backgroundColor = "#232323";
+});
 
 for(var i = 0; i<squares.length; i++){
     //add initial colors
@@ -16,8 +27,9 @@ for(var i = 0; i<squares.length; i++){
         var selected = this.style.backgroundColor;
         if(selected === correctColor){
             messageDisplay.textContent = "Correct!";
-            changeColors(correctColor);
+            uniformColors(correctColor);
             h1.style.backgroundColor = correctColor;
+            newColors.textContent = "Play Again";
         }
         else{
             this.style.backgroundColor = "#232323";
@@ -26,7 +38,7 @@ for(var i = 0; i<squares.length; i++){
     })
 }
 
-function changeColors(color){
+function uniformColors(color){
     for(var i=0; i<squares.length; i++){
         squares[i].style.backgroundColor = color;
     }
